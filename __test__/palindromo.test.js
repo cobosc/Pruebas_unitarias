@@ -7,3 +7,12 @@ test('Comprobar reverse 1', () => {
 test('Comprobar reverse 2', () => {
     expect(palindromo("hola perro")).toBe("orrep aloh");
 })
+describe('palindromo', () => {
+    test.each`
+      firstValue  | expectedResult    
+      ${"CASA"}        | ${"ASAC"}
+      ${"perro"}       | ${"orrep"}
+    `('$firstValue should return $expectedResult', ({firstValue, expectedResult}) => {
+      expect(palindromo(firstValue)).toBe(expectedResult);
+    });
+  });
